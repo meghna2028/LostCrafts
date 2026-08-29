@@ -14,6 +14,7 @@ export type Craft = {
   image: string;
   accent: "warm" | "sun" | "leaf";
   history: string;
+  whyMatters: string;
   materials: string[];
   steps: { title: string; description: string }[];
 };
