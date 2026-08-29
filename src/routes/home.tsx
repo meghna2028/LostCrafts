@@ -83,6 +83,9 @@ function Home() {
         <p className="mt-2 text-base text-muted-foreground">
           Ready to keep a craft alive today?
         </p>
+        <p className="mt-3 inline-flex rounded-full bg-accent px-4 py-1.5 text-xs font-bold tracking-wide text-accent-foreground shadow-[var(--shadow-soft)]">
+          ✨ Start your journey into India's living heritage
+        </p>
 
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {tiles.map((t, i) => (
@@ -90,10 +93,12 @@ function Home() {
               key={t.label}
               to={t.to}
               params={t.params as never}
-              className={`pop-in flex min-h-36 flex-col justify-between rounded-3xl p-6 shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] active:scale-[0.97] ${t.bg} ${t.fg}`}
+              className={`pop-in flex min-h-36 flex-col justify-between rounded-3xl border-2 border-transparent p-6 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:rotate-[0.5deg] hover:border-card/60 hover:shadow-[var(--shadow-lift)] active:scale-[0.97] ${t.bg} ${t.fg}`}
               style={{ animationDelay: `${i * 80}ms` }}
             >
-              <t.icon className="h-8 w-8" />
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-card/25 backdrop-blur-sm">
+                <t.icon className="h-6 w-6" />
+              </span>
               <span>
                 <span className="block font-display text-xl font-semibold">{t.label}</span>
                 <span className="block text-sm opacity-85">{t.hint}</span>

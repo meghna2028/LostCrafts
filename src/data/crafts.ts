@@ -14,6 +14,7 @@ export type Craft = {
   image: string;
   accent: "warm" | "sun" | "leaf";
   history: string;
+  whyMatters: string;
   materials: string[];
   steps: { title: string; description: string }[];
 };
@@ -27,6 +28,8 @@ export const crafts: Craft[] = [
     status: "Critically Rare",
     image: rogan,
     accent: "warm",
+    whyMatters:
+      "Fewer than a dozen families still practise Rogan. When you learn it, you become part of a 300-year unbroken thread — proof this craft is worth keeping.",
     history:
       "Rogan is a 300-year-old painting practice where castor oil is boiled for hours until it turns into a thick, elastic paste. Artisans pick up a thread of this paste with a metal stylus and stretch it mid-air onto cloth, folding the fabric to mirror the motif. Once practised by many families across western India, it now survives with only a handful of households, making every tree-of-life panel a small act of preservation.",
     materials: ["Castor oil", "Natural pigments", "Metal stylus", "Cotton cloth", "Chalk powder"],
@@ -61,6 +64,8 @@ export const crafts: Craft[] = [
     status: "Endangered",
     image: molela,
     accent: "sun",
+    whyMatters:
+      "These clay plaques carry the gods of entire villages. Every learner who understands the Molela process helps keep a living temple tradition standing.",
     history:
       "In the village of Molela near Udaipur, potter families have shaped votive terracotta plaques for generations. Unlike round pottery, these are flat relief panels carrying folk deities such as Dharamraj and Nagaraja, carried home by tribal pilgrims from Gujarat and Madhya Pradesh. The clay comes from a local pond, mixed with donkey dung and sand for strength, then sun-dried and fired in an open kiln.",
     materials: ["Pond clay", "Sand", "Organic binder", "Wooden tools", "Open kiln"],
@@ -95,6 +100,8 @@ export const crafts: Craft[] = [
     status: "Vulnerable",
     image: lac,
     accent: "warm",
+    whyMatters:
+      "Machine-made plastic has replaced most lac workshops. Knowing how a real bangle is born keeps the Manihar community’s fire from going cold.",
     history:
       "Lac, a resin secreted by tiny insects on host trees, has been shaped into Rajasthani bangles for centuries. The Manihar community heats lac sticks over coals until pliable, rolls them into rings on a wooden block, and embeds mirrors, kundan and coloured stones while the surface is still soft. Cheaper machine-made plastic has pushed many workshops out, though bridal demand keeps the craft flickering.",
     materials: ["Lac resin", "Coal brazier", "Mirror pieces", "Kundan stones", "Wooden roller"],
@@ -129,6 +136,8 @@ export const crafts: Craft[] = [
     status: "Reviving",
     image: bluePottery,
     accent: "leaf",
+    whyMatters:
+      "Blue pottery was lost once and revived once already — proof that crafts can come back. Learners like you are how this revival continues.",
     history:
       "Jaipur's blue pottery arrived through Persian and Central Asian craft routes and was revived by Maharaja Ram Singh II in the 19th century. Its dough contains no clay: quartz powder, powdered glass, fuller's earth, borax and gum are pressed into moulds, dried, painted with cobalt oxide florals, glazed and low-fired. The fragile body makes it one of the hardest crafts to master, and only a few Jaipur workshops keep the recipe alive.",
     materials: ["Quartz powder", "Powdered glass", "Fuller's earth", "Cobalt oxide", "Glaze"],

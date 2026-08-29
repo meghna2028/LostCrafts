@@ -35,6 +35,9 @@ function Splash() {
         <p className="mt-4 font-display text-xl italic text-foreground/80">
           Document. Learn. Revive.
         </p>
+        <p className="mt-2 text-sm font-semibold tracking-wide text-forest">
+          Preserving India's disappearing crafts, one step at a time
+        </p>
         <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
           Four vanishing crafts. Real makers' techniques. Learn one step at a time.
         </p>

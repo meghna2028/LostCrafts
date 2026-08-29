@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { MapPin, Sparkles } from "lucide-react";
+import { HeartHandshake, MapPin, Sparkles } from "lucide-react";
 import { getCraft, statusTone } from "@/data/crafts";
 import { PageShell } from "@/components/PageShell";
 
@@ -55,6 +55,13 @@ function CraftDetail() {
         </div>
       </div>
 
+      <section className="gradient-leaf mt-5 rounded-3xl p-6 text-forest-foreground shadow-[var(--shadow-soft)]">
+        <h2 className="flex items-center gap-2 font-display text-xl font-semibold">
+          <HeartHandshake className="h-5 w-5" /> Why this craft matters
+        </h2>
+        <p className="mt-2 text-[15px] leading-relaxed opacity-95">{craft.whyMatters}</p>
+      </section>
+
       <section className="card-soft mt-5 p-6">
         <h2 className="font-display text-xl font-semibold">Materials & tools</h2>
         <div className="mt-4 flex flex-wrap gap-2">
@@ -74,10 +81,13 @@ function CraftDetail() {
       <Link
         to="/crafts/$craftId/learn"
         params={{ craftId: craft.id }}
-        className="gradient-warm mt-6 flex w-full items-center justify-center gap-2 rounded-3xl px-6 py-5 text-lg font-bold text-primary-foreground shadow-[var(--shadow-lift)] transition-transform hover:-translate-y-1 active:scale-[0.97]"
+        className="gradient-warm mt-8 flex w-full items-center justify-center gap-3 rounded-3xl px-6 py-6 text-xl font-bold text-primary-foreground shadow-[var(--shadow-lift)] ring-4 ring-primary/25 transition-all hover:-translate-y-1 hover:ring-primary/40 active:scale-[0.97]"
       >
-        <Sparkles className="h-5 w-5" /> Start Learning this Craft
+        <Sparkles className="h-6 w-6" /> Start Learning this Craft
       </Link>
+      <p className="mt-3 text-center text-xs font-semibold text-muted-foreground">
+        4 simple steps · keeps this craft alive 🌱
+      </p>
     </PageShell>
   );
 }

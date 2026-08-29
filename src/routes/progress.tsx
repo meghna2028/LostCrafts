@@ -45,9 +45,16 @@ function ProgressPage() {
         <p className="font-display text-2xl font-semibold">
           {completed.length} of {crafts.length} crafts completed
         </p>
+        <p className="mt-1 text-sm font-semibold opacity-90">
+          {completed.length === crafts.length
+            ? "🏆 Incredible — you're a true heritage keeper!"
+            : started.length > 0
+              ? "💛 You're helping preserve living heritage!"
+              : "🌱 Every journey starts with one step."}
+        </p>
         <p className="mt-1 text-sm opacity-85">
           {completed.length === crafts.length
-            ? "Incredible — you've learned every craft in this collection!"
+            ? "You've learned every craft in this collection — Rajasthan thanks you."
             : "Small steps, big revival. Keep going!"}
         </p>
       </div>
