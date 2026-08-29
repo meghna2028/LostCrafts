@@ -10,11 +10,21 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as HelpRouteImport } from './routes/help'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as ProgressRouteImport } from './routes/progress'
+import { Route as CraftsIndexRouteImport } from './routes/crafts.index'
+import { Route as CraftsCraftIdIndexRouteImport } from './routes/crafts.$craftId.index'
+import { Route as CraftsCraftIdLearnRouteImport } from './routes/crafts.$craftId.learn'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRoute = HomeRouteImport.update({
@@ -22,31 +32,93 @@ const HomeRoute = HomeRouteImport.update({
   path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProgressRoute = ProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CraftsIndexRoute = CraftsIndexRouteImport.update({
+  id: '/crafts/',
+  path: '/crafts/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CraftsCraftIdIndexRoute = CraftsCraftIdIndexRouteImport.update({
+  id: '/crafts/$craftId/',
+  path: '/crafts/$craftId/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CraftsCraftIdLearnRoute = CraftsCraftIdLearnRouteImport.update({
+  id: '/crafts/$craftId/learn',
+  path: '/crafts/$craftId/learn',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/progress': typeof ProgressRoute
+  '/crafts/': typeof CraftsIndexRoute
+  '/crafts/$craftId/learn': typeof CraftsCraftIdLearnRoute
+  '/crafts/$craftId/': typeof CraftsCraftIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/progress': typeof ProgressRoute
+  '/crafts': typeof CraftsIndexRoute
+  '/crafts/$craftId/learn': typeof CraftsCraftIdLearnRoute
+  '/crafts/$craftId': typeof CraftsCraftIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/progress': typeof ProgressRoute
+  '/crafts/': typeof CraftsIndexRoute
+  '/crafts/$craftId/learn': typeof CraftsCraftIdLearnRoute
+  '/crafts/$craftId/': typeof CraftsCraftIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home'
+  fullPaths:
+    | '/'
+    | '/help'
+    | '/home'
+    | '/progress'
+    | '/crafts/'
+    | '/crafts/$craftId/learn'
+    | '/crafts/$craftId/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home'
-  id: '__root__' | '/' | '/home'
+  to:
+    | '/'
+    | '/help'
+    | '/home'
+    | '/progress'
+    | '/crafts'
+    | '/crafts/$craftId/learn'
+    | '/crafts/$craftId'
+  id:
+    | '__root__'
+    | '/'
+    | '/help'
+    | '/home'
+    | '/progress'
+    | '/crafts/'
+    | '/crafts/$craftId/learn'
+    | '/crafts/$craftId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HelpRoute: typeof HelpRoute
   HomeRoute: typeof HomeRoute
+  ProgressRoute: typeof ProgressRoute
+  CraftsIndexRoute: typeof CraftsIndexRoute
+  CraftsCraftIdLearnRoute: typeof CraftsCraftIdLearnRoute
+  CraftsCraftIdIndexRoute: typeof CraftsCraftIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +130,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/home': {
       id: '/home'
       path: '/home'
@@ -65,12 +144,45 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/progress': {
+      id: '/progress'
+      path: '/progress'
+      fullPath: '/progress'
+      preLoaderRoute: typeof ProgressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crafts/': {
+      id: '/crafts/'
+      path: '/crafts'
+      fullPath: '/crafts/'
+      preLoaderRoute: typeof CraftsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crafts/$craftId/': {
+      id: '/crafts/$craftId/'
+      path: '/crafts/$craftId'
+      fullPath: '/crafts/$craftId/'
+      preLoaderRoute: typeof CraftsCraftIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crafts/$craftId/learn': {
+      id: '/crafts/$craftId/learn'
+      path: '/crafts/$craftId/learn'
+      fullPath: '/crafts/$craftId/learn'
+      preLoaderRoute: typeof CraftsCraftIdLearnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HelpRoute: HelpRoute,
   HomeRoute: HomeRoute,
+  ProgressRoute: ProgressRoute,
+  CraftsIndexRoute: CraftsIndexRoute,
+  CraftsCraftIdLearnRoute: CraftsCraftIdLearnRoute,
+  CraftsCraftIdIndexRoute: CraftsCraftIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
