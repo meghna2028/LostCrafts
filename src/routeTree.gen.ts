@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CuratorRouteImport } from './routes/curator'
 import { Route as HelpRouteImport } from './routes/help'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as ProgressRouteImport } from './routes/progress'
@@ -20,6 +21,11 @@ import { Route as CraftsCraftIdLearnRouteImport } from './routes/crafts.$craftId
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CuratorRoute = CuratorRouteImport.update({
+  id: '/curator',
+  path: '/curator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HelpRoute = HelpRouteImport.update({
@@ -55,6 +61,7 @@ const CraftsCraftIdLearnRoute = CraftsCraftIdLearnRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/curator': typeof CuratorRoute
   '/help': typeof HelpRoute
   '/home': typeof HomeRoute
   '/progress': typeof ProgressRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/curator': typeof CuratorRoute
   '/help': typeof HelpRoute
   '/home': typeof HomeRoute
   '/progress': typeof ProgressRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/curator': typeof CuratorRoute
   '/help': typeof HelpRoute
   '/home': typeof HomeRoute
   '/progress': typeof ProgressRoute
@@ -85,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/curator'
     | '/help'
     | '/home'
     | '/progress'
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/curator'
     | '/help'
     | '/home'
     | '/progress'
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/curator'
     | '/help'
     | '/home'
     | '/progress'
@@ -113,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CuratorRoute: typeof CuratorRoute
   HelpRoute: typeof HelpRoute
   HomeRoute: typeof HomeRoute
   ProgressRoute: typeof ProgressRoute
@@ -128,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/curator': {
+      id: '/curator'
+      path: '/curator'
+      fullPath: '/curator'
+      preLoaderRoute: typeof CuratorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/help': {
@@ -177,6 +197,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CuratorRoute: CuratorRoute,
   HelpRoute: HelpRoute,
   HomeRoute: HomeRoute,
   ProgressRoute: ProgressRoute,
