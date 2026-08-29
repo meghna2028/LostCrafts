@@ -37,7 +37,8 @@ function Home() {
   const inProgress = crafts.find(
     (c) => (progress[c.id]?.length ?? 0) > 0 && (progress[c.id]?.length ?? 0) < c.steps.length,
   );
-  const resume = inProgress ?? crafts[0];
+  const featured = crafts[0]!;
+  const resume = inProgress ?? featured;
 
   const tiles: Tile[] = [
     {
@@ -103,13 +104,13 @@ function Home() {
 
         <div className="card-soft mt-8 p-6">
           <p className="font-display text-lg font-semibold">Craft of the day</p>
-          <p className="mt-1 text-sm text-muted-foreground">{crafts[0].tagline}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{featured.tagline}</p>
           <Link
             to="/crafts/$craftId"
-            params={{ craftId: crafts[0].id }}
+            params={{ craftId: featured.id }}
             className="mt-4 inline-flex rounded-2xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-transform active:scale-95"
           >
-            Meet {crafts[0].name}
+            Meet {featured.name}
           </Link>
         </div>
       </div>
