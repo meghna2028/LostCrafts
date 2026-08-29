@@ -53,7 +53,19 @@ function LearnCraft() {
       subtitle={`${done.length} of ${total} steps done`}
       backTo="/crafts"
     >
-      <div className="sticky top-3 z-10 rounded-full bg-card/95 p-2 shadow-[var(--shadow-soft)] backdrop-blur">
+      <div className="sticky top-3 z-10 rounded-3xl bg-card/95 p-3 shadow-[var(--shadow-soft)] backdrop-blur">
+        <div className="flex items-center justify-between px-2 pb-2 text-xs font-bold">
+          <span className="text-muted-foreground">
+            {pct === 100
+              ? "🎉 Craft complete — amazing!"
+              : pct >= 50
+                ? "🔥 You're on a roll!"
+                : done.length > 0
+                  ? "🌱 Great start — keep going!"
+                  : "👇 Tap a step when done"}
+          </span>
+          <span className="text-primary">{hydrated ? pct : 0}%</span>
+        </div>
         <div className="h-3 w-full overflow-hidden rounded-full bg-muted">
           <div
             className="gradient-warm h-full rounded-full transition-[width] duration-500 ease-out"
@@ -104,9 +116,10 @@ function LearnCraft() {
         <div className="card-soft relative mt-6 overflow-hidden p-8 text-center">
           <Confetti />
           <PartyPopper className="mx-auto h-10 w-10 text-primary" />
-          <h2 className="mt-3 font-display text-2xl font-semibold">Shabaash! 🎉</h2>
+          <h2 className="mt-3 font-display text-2xl font-semibold">Well done! 🎉</h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            You've walked through every step of {craft.name}. One more craft carried forward.
+            You've taken the first step in keeping {craft.name} alive — one more craft carried
+            forward, thanks to you.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Link
