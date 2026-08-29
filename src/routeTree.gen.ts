@@ -13,8 +13,12 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CuratorRouteImport } from './routes/curator'
 import { Route as HelpRouteImport } from './routes/help'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as McpRouteImport } from './routes/mcp'
 import { Route as ProgressRouteImport } from './routes/progress'
+import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as CraftsIndexRouteImport } from './routes/crafts.index'
+import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 import { Route as CraftsCraftIdIndexRouteImport } from './routes/crafts.$craftId.index'
 import { Route as CraftsCraftIdLearnRouteImport } from './routes/crafts.$craftId.learn'
 
@@ -38,16 +42,39 @@ const HomeRoute = HomeRouteImport.update({
   path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgressRoute = ProgressRouteImport.update({
   id: '/progress',
   path: '/progress',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotmcpChar93ListToolsRoute =
+  Char91DotmcpChar93ListToolsRouteImport.update({
+    id: '/.mcp/list-tools',
+    path: '/.mcp/list-tools',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CraftsIndexRoute = CraftsIndexRouteImport.update({
   id: '/crafts/',
   path: '/crafts/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotmcpChar93InvokeToolToolRoute =
+  Char91DotmcpChar93InvokeToolToolRouteImport.update({
+    id: '/.mcp/invoke-tool/$tool',
+    path: '/.mcp/invoke-tool/$tool',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CraftsCraftIdIndexRoute = CraftsCraftIdIndexRouteImport.update({
   id: '/crafts/$craftId/',
   path: '/crafts/$craftId/',
@@ -64,8 +91,12 @@ export interface FileRoutesByFullPath {
   '/curator': typeof CuratorRoute
   '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/mcp': typeof McpRoute
   '/progress': typeof ProgressRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/crafts/': typeof CraftsIndexRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/crafts/$craftId/learn': typeof CraftsCraftIdLearnRoute
   '/crafts/$craftId/': typeof CraftsCraftIdIndexRoute
 }
@@ -74,8 +105,12 @@ export interface FileRoutesByTo {
   '/curator': typeof CuratorRoute
   '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/mcp': typeof McpRoute
   '/progress': typeof ProgressRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/crafts': typeof CraftsIndexRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/crafts/$craftId/learn': typeof CraftsCraftIdLearnRoute
   '/crafts/$craftId': typeof CraftsCraftIdIndexRoute
 }
@@ -85,8 +120,12 @@ export interface FileRoutesById {
   '/curator': typeof CuratorRoute
   '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/mcp': typeof McpRoute
   '/progress': typeof ProgressRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/crafts/': typeof CraftsIndexRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/crafts/$craftId/learn': typeof CraftsCraftIdLearnRoute
   '/crafts/$craftId/': typeof CraftsCraftIdIndexRoute
 }
@@ -97,8 +136,12 @@ export interface FileRouteTypes {
     | '/curator'
     | '/help'
     | '/home'
+    | '/mcp'
     | '/progress'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
     | '/crafts/'
+    | '/.mcp/invoke-tool/$tool'
     | '/crafts/$craftId/learn'
     | '/crafts/$craftId/'
   fileRoutesByTo: FileRoutesByTo
@@ -107,8 +150,12 @@ export interface FileRouteTypes {
     | '/curator'
     | '/help'
     | '/home'
+    | '/mcp'
     | '/progress'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
     | '/crafts'
+    | '/.mcp/invoke-tool/$tool'
     | '/crafts/$craftId/learn'
     | '/crafts/$craftId'
   id:
@@ -117,8 +164,12 @@ export interface FileRouteTypes {
     | '/curator'
     | '/help'
     | '/home'
+    | '/mcp'
     | '/progress'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
     | '/crafts/'
+    | '/.mcp/invoke-tool/$tool'
     | '/crafts/$craftId/learn'
     | '/crafts/$craftId/'
   fileRoutesById: FileRoutesById
@@ -128,8 +179,12 @@ export interface RootRouteChildren {
   CuratorRoute: typeof CuratorRoute
   HelpRoute: typeof HelpRoute
   HomeRoute: typeof HomeRoute
+  McpRoute: typeof McpRoute
   ProgressRoute: typeof ProgressRoute
+  Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
+  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   CraftsIndexRoute: typeof CraftsIndexRoute
+  Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
   CraftsCraftIdLearnRoute: typeof CraftsCraftIdLearnRoute
   CraftsCraftIdIndexRoute: typeof CraftsCraftIdIndexRoute
 }
@@ -164,6 +219,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/progress': {
       id: '/progress'
       path: '/progress'
@@ -171,11 +233,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgressRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/.mcp/list-tools': {
+      id: '/.mcp/list-tools'
+      path: '/.mcp/list-tools'
+      fullPath: '/.mcp/list-tools'
+      preLoaderRoute: typeof Char91DotmcpChar93ListToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/crafts/': {
       id: '/crafts/'
       path: '/crafts'
       fullPath: '/crafts/'
       preLoaderRoute: typeof CraftsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.mcp/invoke-tool/$tool': {
+      id: '/.mcp/invoke-tool/$tool'
+      path: '/.mcp/invoke-tool/$tool'
+      fullPath: '/.mcp/invoke-tool/$tool'
+      preLoaderRoute: typeof Char91DotmcpChar93InvokeToolToolRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/crafts/$craftId/': {
@@ -200,8 +283,13 @@ const rootRouteChildren: RootRouteChildren = {
   CuratorRoute: CuratorRoute,
   HelpRoute: HelpRoute,
   HomeRoute: HomeRoute,
+  McpRoute: McpRoute,
   ProgressRoute: ProgressRoute,
+  Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
+  Char91DotwellKnownChar93OauthProtectedResourceRoute:
+    Char91DotwellKnownChar93OauthProtectedResourceRoute,
   CraftsIndexRoute: CraftsIndexRoute,
+  Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
   CraftsCraftIdLearnRoute: CraftsCraftIdLearnRoute,
   CraftsCraftIdIndexRoute: CraftsCraftIdIndexRoute,
 }

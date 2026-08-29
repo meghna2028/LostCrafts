@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "sdk_version": "0.28.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "lostcraft",
+      "version": "0.1.0",
+      "title": "LostCraft"
+    },
+    "tools": [
+      {
+        "name": "list_crafts",
+        "title": "List crafts",
+        "description": "List all traditional Rajasthani crafts documented in LostCraft, with their id, name, origin, tagline and endangerment status.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_craft",
+        "title": "Get craft details",
+        "description": "Get the full documentation for one craft: history, why it matters, materials and its status.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "craftId": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Craft id, e.g. 'rogan-art' (see list_crafts)."
+            }
+          },
+          "required": [
+            "craftId"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_craft_steps",
+        "title": "Get craft learning steps",
+        "description": "Get the ordered step-by-step learning guide for one craft.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "craftId": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Craft id, e.g. 'blue-pottery' (see list_crafts)."
+            }
+          },
+          "required": [
+            "craftId"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
