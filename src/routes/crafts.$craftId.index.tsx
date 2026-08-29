@@ -55,6 +55,13 @@ function CraftDetail() {
         </div>
       </div>
 
+      <section className="gradient-leaf mt-5 rounded-3xl p-6 text-forest-foreground shadow-[var(--shadow-soft)]">
+        <h2 className="flex items-center gap-2 font-display text-xl font-semibold">
+          <HeartHandshake className="h-5 w-5" /> Why this craft matters
+        </h2>
+        <p className="mt-2 text-[15px] leading-relaxed opacity-95">{craft.whyMatters}</p>
+      </section>
+
       <section className="card-soft mt-5 p-6">
         <h2 className="font-display text-xl font-semibold">Materials & tools</h2>
         <div className="mt-4 flex flex-wrap gap-2">
