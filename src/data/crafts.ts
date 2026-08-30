@@ -13,6 +13,7 @@ export type Craft = {
   status: CraftStatus;
   image: string;
   accent: "warm" | "sun" | "leaf";
+  whyDisappearing: string;
   history: string;
   whyMatters: string;
   materials: string[];
