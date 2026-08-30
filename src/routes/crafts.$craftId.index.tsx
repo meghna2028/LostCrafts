@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { HeartHandshake, MapPin, Sparkles } from "lucide-react";
+import { HeartHandshake, MapPin, ScanEye, Sparkles } from "lucide-react";
 import { getCraft, statusTone } from "@/data/crafts";
 import { PageShell } from "@/components/PageShell";
 

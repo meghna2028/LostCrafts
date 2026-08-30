@@ -87,6 +87,37 @@ function Home() {
           ✨ Start your journey into India's living heritage
         </p>
 
+        {/* Craft of the Week */}
+        <section className="card-soft mt-8 overflow-hidden !rounded-3xl border-2 border-mustard/40">
+          <div className="gradient-sun px-6 pb-5 pt-4">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-card/85 px-3 py-1 text-xs font-bold tracking-wide text-mustard-foreground shadow-sm">
+              <Sparkles className="h-3.5 w-3.5" /> Craft of the Week
+            </span>
+            <p className="mt-3 font-display text-3xl font-bold tracking-tight text-mustard-foreground">
+              {featured.name}
+            </p>
+            <p className="mt-1 text-sm font-medium text-mustard-foreground/85">
+              {featured.whyDisappearing}
+            </p>
+          </div>
+          <div className="relative">
+            <img
+              src={featured.image}
+              alt={`${featured.name} artwork`}
+              width={1024}
+              height={768}
+              className="h-44 w-full object-cover sm:h-52"
+            />
+            <Link
+              to="/crafts/$craftId"
+              params={{ craftId: featured.id }}
+              className="gradient-warm absolute inset-x-5 bottom-4 flex items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-lg font-bold text-primary-foreground shadow-[var(--shadow-lift)] ring-2 ring-card/50 transition-all hover:-translate-y-0.5 active:scale-[0.97]"
+            >
+              <Sparkles className="h-5 w-5" /> Start Learning
+            </Link>
+          </div>
+        </section>
+
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {tiles.map((t, i) => (
             <Link

@@ -104,6 +104,8 @@ export const crafts: Craft[] = [
     image: lac,
     accent: "warm",
     whyDisappearing: "Machine-made plastic has pushed most lac workshops out of business.",
+    whyMatters:
+      "Machine-made plastic has replaced most lac workshops. Knowing how a real bangle is born keeps the Manihar community’s fire from going cold.",
     history:
       "Lac, a resin secreted by tiny insects on host trees, has been shaped into Rajasthani bangles for centuries. The Manihar community heats lac sticks over coals until pliable, rolls them into rings on a wooden block, and embeds mirrors, kundan and coloured stones while the surface is still soft. Cheaper machine-made plastic has pushed many workshops out, though bridal demand keeps the craft flickering.",
     materials: ["Lac resin", "Coal brazier", "Mirror pieces", "Kundan stones", "Wooden roller"],
