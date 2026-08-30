@@ -29,6 +29,7 @@ export const crafts: Craft[] = [
     status: "Critically Rare",
     image: rogan,
     accent: "warm",
+    whyDisappearing: "Only a few families in Kutch still practise this rare art form.",
     whyMatters:
       "Fewer than a dozen families still practise Rogan. When you learn it, you become part of a 300-year unbroken thread — proof this craft is worth keeping.",
     history:
