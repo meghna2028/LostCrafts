@@ -20,6 +20,7 @@ import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } fr
 import { Route as CraftsIndexRouteImport } from './routes/crafts.index'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 import { Route as CraftsCraftIdIndexRouteImport } from './routes/crafts.$craftId.index'
+import { Route as CraftsCraftIdArRouteImport } from './routes/crafts.$craftId.ar'
 import { Route as CraftsCraftIdLearnRouteImport } from './routes/crafts.$craftId.learn'
 
 const IndexRoute = IndexRouteImport.update({
@@ -80,6 +81,11 @@ const CraftsCraftIdIndexRoute = CraftsCraftIdIndexRouteImport.update({
   path: '/crafts/$craftId/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CraftsCraftIdArRoute = CraftsCraftIdArRouteImport.update({
+  id: '/crafts/$craftId/ar',
+  path: '/crafts/$craftId/ar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CraftsCraftIdLearnRoute = CraftsCraftIdLearnRouteImport.update({
   id: '/crafts/$craftId/learn',
   path: '/crafts/$craftId/learn',
@@ -97,6 +103,7 @@ export interface FileRoutesByFullPath {
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/crafts/': typeof CraftsIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
+  '/crafts/$craftId/ar': typeof CraftsCraftIdArRoute
   '/crafts/$craftId/learn': typeof CraftsCraftIdLearnRoute
   '/crafts/$craftId/': typeof CraftsCraftIdIndexRoute
 }
@@ -111,6 +118,7 @@ export interface FileRoutesByTo {
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/crafts': typeof CraftsIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
+  '/crafts/$craftId/ar': typeof CraftsCraftIdArRoute
   '/crafts/$craftId/learn': typeof CraftsCraftIdLearnRoute
   '/crafts/$craftId': typeof CraftsCraftIdIndexRoute
 }
@@ -126,6 +134,7 @@ export interface FileRoutesById {
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/crafts/': typeof CraftsIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
+  '/crafts/$craftId/ar': typeof CraftsCraftIdArRoute
   '/crafts/$craftId/learn': typeof CraftsCraftIdLearnRoute
   '/crafts/$craftId/': typeof CraftsCraftIdIndexRoute
 }
@@ -142,6 +151,7 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-protected-resource'
     | '/crafts/'
     | '/.mcp/invoke-tool/$tool'
+    | '/crafts/$craftId/ar'
     | '/crafts/$craftId/learn'
     | '/crafts/$craftId/'
   fileRoutesByTo: FileRoutesByTo
@@ -156,6 +166,7 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-protected-resource'
     | '/crafts'
     | '/.mcp/invoke-tool/$tool'
+    | '/crafts/$craftId/ar'
     | '/crafts/$craftId/learn'
     | '/crafts/$craftId'
   id:
@@ -170,6 +181,7 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-protected-resource'
     | '/crafts/'
     | '/.mcp/invoke-tool/$tool'
+    | '/crafts/$craftId/ar'
     | '/crafts/$craftId/learn'
     | '/crafts/$craftId/'
   fileRoutesById: FileRoutesById
@@ -185,6 +197,7 @@ export interface RootRouteChildren {
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   CraftsIndexRoute: typeof CraftsIndexRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
+  CraftsCraftIdArRoute: typeof CraftsCraftIdArRoute
   CraftsCraftIdLearnRoute: typeof CraftsCraftIdLearnRoute
   CraftsCraftIdIndexRoute: typeof CraftsCraftIdIndexRoute
 }
@@ -268,6 +281,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CraftsCraftIdIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/crafts/$craftId/ar': {
+      id: '/crafts/$craftId/ar'
+      path: '/crafts/$craftId/ar'
+      fullPath: '/crafts/$craftId/ar'
+      preLoaderRoute: typeof CraftsCraftIdArRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/crafts/$craftId/learn': {
       id: '/crafts/$craftId/learn'
       path: '/crafts/$craftId/learn'
@@ -290,6 +310,7 @@ const rootRouteChildren: RootRouteChildren = {
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
   CraftsIndexRoute: CraftsIndexRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
+  CraftsCraftIdArRoute: CraftsCraftIdArRoute,
   CraftsCraftIdLearnRoute: CraftsCraftIdLearnRoute,
   CraftsCraftIdIndexRoute: CraftsCraftIdIndexRoute,
 }

@@ -103,8 +103,7 @@ export const crafts: Craft[] = [
     status: "Vulnerable",
     image: lac,
     accent: "warm",
-    whyMatters:
-      "Machine-made plastic has replaced most lac workshops. Knowing how a real bangle is born keeps the Manihar community’s fire from going cold.",
+    whyDisappearing: "Machine-made plastic has pushed most lac workshops out of business.",
     history:
       "Lac, a resin secreted by tiny insects on host trees, has been shaped into Rajasthani bangles for centuries. The Manihar community heats lac sticks over coals until pliable, rolls them into rings on a wooden block, and embeds mirrors, kundan and coloured stones while the surface is still soft. Cheaper machine-made plastic has pushed many workshops out, though bridal demand keeps the craft flickering.",
     materials: ["Lac resin", "Coal brazier", "Mirror pieces", "Kundan stones", "Wooden roller"],
@@ -139,6 +138,7 @@ export const crafts: Craft[] = [
     status: "Reviving",
     image: bluePottery,
     accent: "leaf",
+    whyDisappearing: "Only a few Jaipur workshops still know the fragile no-clay recipe.",
     whyMatters:
       "Blue pottery was lost once and revived once already — proof that crafts can come back. Learners like you are how this revival continues.",
     history:

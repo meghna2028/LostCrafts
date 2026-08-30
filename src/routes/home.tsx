@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Compass, PlayCircle, TrendingUp, LifeBuoy } from "lucide-react";
+import { Compass, PlayCircle, Sparkles, TrendingUp, LifeBuoy } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { crafts } from "@/data/crafts";
 import { useProgress } from "@/lib/progress";
