@@ -66,6 +66,7 @@ export const crafts: Craft[] = [
     status: "Endangered",
     image: molela,
     accent: "sun",
+    whyDisappearing: "A single potter cluster in Molela keeps this temple tradition alive.",
     whyMatters:
       "These clay plaques carry the gods of entire villages. Every learner who understands the Molela process helps keep a living temple tradition standing.",
     history:
