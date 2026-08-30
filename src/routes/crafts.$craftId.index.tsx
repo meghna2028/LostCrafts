@@ -79,9 +79,17 @@ function CraftDetail() {
       </section>
 
       <Link
+        to="/crafts/$craftId/ar"
+        params={{ craftId: craft.id }}
+        className="gradient-sun mt-5 flex w-full items-center justify-center gap-3 rounded-3xl px-6 py-5 text-lg font-bold text-mustard-foreground shadow-[var(--shadow-soft)] ring-4 ring-mustard/25 transition-all hover:-translate-y-1 hover:ring-mustard/40 active:scale-[0.97]"
+      >
+        <ScanEye className="h-6 w-6" /> View in Your Space (AR)
+      </Link>
+
+      <Link
         to="/crafts/$craftId/learn"
         params={{ craftId: craft.id }}
-        className="gradient-warm mt-8 flex w-full items-center justify-center gap-3 rounded-3xl px-6 py-6 text-xl font-bold text-primary-foreground shadow-[var(--shadow-lift)] ring-4 ring-primary/25 transition-all hover:-translate-y-1 hover:ring-primary/40 active:scale-[0.97]"
+        className="gradient-warm mt-5 flex w-full items-center justify-center gap-3 rounded-3xl px-6 py-6 text-xl font-bold text-primary-foreground shadow-[var(--shadow-lift)] ring-4 ring-primary/25 transition-all hover:-translate-y-1 hover:ring-primary/40 active:scale-[0.97]"
       >
         <Sparkles className="h-6 w-6" /> Start Learning this Craft
       </Link>

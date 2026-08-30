@@ -139,14 +139,16 @@ function Home() {
         </div>
 
         <div className="card-soft mt-8 p-6">
-          <p className="font-display text-lg font-semibold">Craft of the day</p>
-          <p className="mt-1 text-sm text-muted-foreground">{featured.tagline}</p>
+          <p className="font-display text-lg font-semibold">Did you know?</p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {featured.whyDisappearing} Every step you learn helps keep {featured.name} alive.
+          </p>
           <Link
-            to="/crafts/$craftId"
+            to="/crafts/$craftId/ar"
             params={{ craftId: featured.id }}
-            className="mt-4 inline-flex rounded-2xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-transform active:scale-95"
+            className="gradient-sun mt-4 inline-flex rounded-2xl px-5 py-3 text-sm font-bold text-mustard-foreground transition-transform active:scale-95"
           >
-            Meet {featured.name}
+            Preview {featured.name} in your space
           </Link>
         </div>
       </div>
