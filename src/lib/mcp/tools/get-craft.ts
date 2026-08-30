@@ -10,6 +10,19 @@ export default defineTool({
   inputSchema: {
     craftId: z.string().min(1).describe("Craft id, e.g. 'rogan-art' (see list_crafts)."),
   },
+  outputSchema: {
+    craft: z.object({
+      id: z.string(),
+      name: z.string(),
+      origin: z.string(),
+      tagline: z.string(),
+      status: z.string(),
+      history: z.string(),
+      whyMatters: z.string(),
+      materials: z.array(z.string()),
+      stepCount: z.number(),
+    }),
+  },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ craftId }) => {
     const craft = crafts.find((c) => c.id === craftId);

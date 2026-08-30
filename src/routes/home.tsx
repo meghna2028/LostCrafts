@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Compass, PlayCircle, TrendingUp, LifeBuoy } from "lucide-react";
+import { Compass, PlayCircle, Sparkles, TrendingUp, LifeBuoy } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { crafts } from "@/data/crafts";
 import { useProgress } from "@/lib/progress";
@@ -87,6 +87,37 @@ function Home() {
           ✨ Start your journey into India's living heritage
         </p>
 
+        {/* Craft of the Week */}
+        <section className="card-soft mt-8 overflow-hidden !rounded-3xl border-2 border-mustard/40">
+          <div className="gradient-sun px-6 pb-5 pt-4">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-card/85 px-3 py-1 text-xs font-bold tracking-wide text-mustard-foreground shadow-sm">
+              <Sparkles className="h-3.5 w-3.5" /> Craft of the Week
+            </span>
+            <p className="mt-3 font-display text-3xl font-bold tracking-tight text-mustard-foreground">
+              {featured.name}
+            </p>
+            <p className="mt-1 text-sm font-medium text-mustard-foreground/85">
+              {featured.whyDisappearing}
+            </p>
+          </div>
+          <div className="relative">
+            <img
+              src={featured.image}
+              alt={`${featured.name} artwork`}
+              width={1024}
+              height={768}
+              className="h-44 w-full object-cover sm:h-52"
+            />
+            <Link
+              to="/crafts/$craftId"
+              params={{ craftId: featured.id }}
+              className="gradient-warm absolute inset-x-5 bottom-4 flex items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-lg font-bold text-primary-foreground shadow-[var(--shadow-lift)] ring-2 ring-card/50 transition-all hover:-translate-y-0.5 active:scale-[0.97]"
+            >
+              <Sparkles className="h-5 w-5" /> Start Learning
+            </Link>
+          </div>
+        </section>
+
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {tiles.map((t, i) => (
             <Link
@@ -108,14 +139,16 @@ function Home() {
         </div>
 
         <div className="card-soft mt-8 p-6">
-          <p className="font-display text-lg font-semibold">Craft of the day</p>
-          <p className="mt-1 text-sm text-muted-foreground">{featured.tagline}</p>
+          <p className="font-display text-lg font-semibold">Did you know?</p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {featured.whyDisappearing} Every step you learn helps keep {featured.name} alive.
+          </p>
           <Link
-            to="/crafts/$craftId"
+            to="/crafts/$craftId/ar"
             params={{ craftId: featured.id }}
-            className="mt-4 inline-flex rounded-2xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-transform active:scale-95"
+            className="gradient-sun mt-4 inline-flex rounded-2xl px-5 py-3 text-sm font-bold text-mustard-foreground transition-transform active:scale-95"
           >
-            Meet {featured.name}
+            Preview {featured.name} in your space
           </Link>
         </div>
       </div>

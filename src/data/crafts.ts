@@ -13,6 +13,7 @@ export type Craft = {
   status: CraftStatus;
   image: string;
   accent: "warm" | "sun" | "leaf";
+  whyDisappearing: string;
   history: string;
   whyMatters: string;
   materials: string[];
@@ -28,6 +29,7 @@ export const crafts: Craft[] = [
     status: "Critically Rare",
     image: rogan,
     accent: "warm",
+    whyDisappearing: "Only a few families in Kutch still practise this rare art form.",
     whyMatters:
       "Fewer than a dozen families still practise Rogan. When you learn it, you become part of a 300-year unbroken thread — proof this craft is worth keeping.",
     history:
@@ -64,6 +66,7 @@ export const crafts: Craft[] = [
     status: "Endangered",
     image: molela,
     accent: "sun",
+    whyDisappearing: "A single potter cluster in Molela keeps this temple tradition alive.",
     whyMatters:
       "These clay plaques carry the gods of entire villages. Every learner who understands the Molela process helps keep a living temple tradition standing.",
     history:
@@ -100,6 +103,7 @@ export const crafts: Craft[] = [
     status: "Vulnerable",
     image: lac,
     accent: "warm",
+    whyDisappearing: "Machine-made plastic has pushed most lac workshops out of business.",
     whyMatters:
       "Machine-made plastic has replaced most lac workshops. Knowing how a real bangle is born keeps the Manihar community’s fire from going cold.",
     history:
@@ -136,6 +140,7 @@ export const crafts: Craft[] = [
     status: "Reviving",
     image: bluePottery,
     accent: "leaf",
+    whyDisappearing: "Only a few Jaipur workshops still know the fragile no-clay recipe.",
     whyMatters:
       "Blue pottery was lost once and revived once already — proof that crafts can come back. Learners like you are how this revival continues.",
     history:

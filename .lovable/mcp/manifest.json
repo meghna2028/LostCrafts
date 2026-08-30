@@ -26,7 +26,49 @@
           "type": "object",
           "properties": {}
         },
-        "outputSchema": null
+        "outputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "crafts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "origin": {
+                    "type": "string"
+                  },
+                  "tagline": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "stepCount": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "origin",
+                  "tagline",
+                  "status",
+                  "stepCount"
+                ]
+              }
+            }
+          },
+          "required": [
+            "crafts"
+          ]
+        }
       },
       {
         "name": "get_craft",
@@ -51,7 +93,61 @@
             "craftId"
           ]
         },
-        "outputSchema": null
+        "outputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "craft": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "tagline": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "history": {
+                  "type": "string"
+                },
+                "whyMatters": {
+                  "type": "string"
+                },
+                "materials": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "stepCount": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "origin",
+                "tagline",
+                "status",
+                "history",
+                "whyMatters",
+                "materials",
+                "stepCount"
+              ]
+            }
+          },
+          "required": [
+            "craft"
+          ]
+        }
       },
       {
         "name": "get_craft_steps",
@@ -76,7 +172,41 @@
             "craftId"
           ]
         },
-        "outputSchema": null
+        "outputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "craft": {
+              "type": "string"
+            },
+            "steps": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "step": {
+                    "type": "number"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "step",
+                  "title",
+                  "description"
+                ]
+              }
+            }
+          },
+          "required": [
+            "craft",
+            "steps"
+          ]
+        }
       }
     ]
   }
