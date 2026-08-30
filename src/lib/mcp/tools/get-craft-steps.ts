@@ -9,6 +9,10 @@ export default defineTool({
   inputSchema: {
     craftId: z.string().min(1).describe("Craft id, e.g. 'blue-pottery' (see list_crafts)."),
   },
+  outputSchema: {
+    craft: z.string(),
+    steps: z.array(z.object({ step: z.number(), title: z.string(), description: z.string() })),
+  },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ craftId }) => {
     const craft = crafts.find((c) => c.id === craftId);
